@@ -9,7 +9,7 @@ MAGIC_NUMBER2 = b"\x69\x32\x69\x32\x00\x00\x39\x6b\x69\x32"
 EXTRACT_DIRECTORY = "extract"
 
 def parse_arguments():
-    desc = """Extract files from FAT16 file system"""
+    desc = """Recover data from FAT16 image file partition"""
     parser = argparse.ArgumentParser(prog='fat16_extract', description=desc)
     parser.add_argument('-f', '--file', 
         metavar='File',
@@ -76,7 +76,7 @@ def get_cluster_size(data, root_dir_offset, c2_offset):
     return 0
     
 
-def get_files(data, root_dir_offset, c2_offset, cluster_size):
+def extrcat(data, root_dir_offset, c2_offset, cluster_size):
 
     offset = root_dir_offset
     i = 0
@@ -123,4 +123,4 @@ if __name__ == "__main__":
     if root_dir_offset != c2_offset:
         cluster_size = get_cluster_size(data, root_dir_offset, c2_offset)
         if cluster_size % 512 == 0 and cluster_size >= 512:
-            get_files(data, root_dir_offset, c2_offset, cluster_size)
+            extrcat(data, root_dir_offset, c2_offset, cluster_size)
