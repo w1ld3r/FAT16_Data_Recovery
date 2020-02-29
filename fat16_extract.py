@@ -76,7 +76,7 @@ def get_cluster_size(data, root_dir_offset, c2_offset):
     return 0
     
 
-def extrcat(data, root_dir_offset, c2_offset, cluster_size):
+def extract(data, root_dir_offset, c2_offset, cluster_size):
 
     offset = root_dir_offset
     i = 0
@@ -123,4 +123,4 @@ if __name__ == "__main__":
     if root_dir_offset != c2_offset:
         cluster_size = get_cluster_size(data, root_dir_offset, c2_offset)
         if cluster_size % 512 == 0 and cluster_size >= 512:
-            extrcat(data, root_dir_offset, c2_offset, cluster_size)
+            extract(data, root_dir_offset, c2_offset, cluster_size)
