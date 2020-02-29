@@ -4,7 +4,7 @@ Recover files from FAT16 image file partiton.
 ## Prerequisites
 Install python3:
 ```bash
-sudo apt install python3 python3-pip
+sudo apt install python3
 ```
 
 ## Installing
